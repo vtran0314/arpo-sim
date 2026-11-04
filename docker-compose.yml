@@ -1,0 +1,35 @@
+services:
+  sim:
+    build:
+      context: .
+      args:
+        ROS_DISTRO: humble
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+    image: fusion-sim:humble
+    container_name: fusion-sim
+    network_mode: host
+    ipc: host
+    stdin_open: true
+    tty: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_QPA_PLATFORM=xcb
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      # hybrid-graphics laptop: render on the NVIDIA GPU
+      - __NV_PRIME_RENDER_OFFLOAD=1
+      - __GLX_VENDOR_LIBRARY_NAME=nvidia
+      # keep DDS traffic on this machine so you don't see other lab members' topics
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./ws:/home/dev/ws
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,5 @@
+# Workspace - managed separately
+ws/
+
+# Docker environment variables (may contain secrets)
+.env

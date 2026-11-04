@@ -1,0 +1,28 @@
+services:
+  sim:
+    build:
+      context: .
+      args:
+        ROS_DISTRO: humble
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+    image: fusion-sim:humble
+    container_name: fusion-sim
+    network_mode: host
+    ipc: host
+    stdin_open: true
+    tty: true
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-wayland-0}
+      - XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+      - PULSE_SERVER=/mnt/wslg/PulseServer
+      - LD_LIBRARY_PATH=/usr/lib/wsl/lib
+      - QT_QPA_PLATFORM=xcb
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+      - /usr/lib/wsl:/usr/lib/wsl
+    devices:
+      - /dev/dxg:/dev/dxg
