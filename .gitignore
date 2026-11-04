@@ -1,5 +1,8 @@
-# Workspace - managed separately
-ws/
+# Workspace - cloned/built at runtime by entrypoint
+ws/src/FastSwarmSim/
+ws/build/
+ws/install/
+ws/log/
 
 # Docker environment variables (may contain secrets)
 .env
