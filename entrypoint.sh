@@ -1,5 +1,5 @@
-#!/bin/bash
-set -e
+#! /bin/bash
+set -ev
 
 WS=/home/dev/ws
 FSS_DIR=${WS}/src/FastSwarmSim
@@ -11,6 +11,9 @@ if [ ! -d "${FSS_DIR}" ]; then
 
     echo "[setup] Updating rosdep database..."
     rosdep update --rosdistro humble
+
+    echo "[Apt-get update]"
+    sudo apt-get update
 
     echo "[setup] Installing ROS dependencies..."
     source /opt/ros/humble/setup.bash

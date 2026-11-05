@@ -26,7 +26,8 @@ WORKDIR /home/dev/ws
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc \
  && echo "[ -f ~/ws/install/setup.bash ] && source ~/ws/install/setup.bash" >> ~/.bashrc
 
+COPY entrypoint.sh /home/dev/ws/entrypoint.sh
 COPY --chown=dev:dev entrypoint.sh /home/dev/entrypoint.sh
-RUN chmod +x /home/dev/entrypoint.sh
-ENTRYPOINT ["/home/dev/entrypoint.sh"]
+COPY --chmod=755 entrypoint.sh /home/dev/entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
