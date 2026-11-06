@@ -6,8 +6,8 @@ services:
         ROS_DISTRO: humble
         HOST_UID: ${HOST_UID:-1000}
         HOST_GID: ${HOST_GID:-1000}
-    image: fusion-sim:humble
-    container_name: fusion-sim
+    image: arpo-sim:humble
+    container_name: arpo-sim
     network_mode: host
     ipc: host
     stdin_open: true

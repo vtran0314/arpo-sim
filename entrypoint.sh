@@ -3,6 +3,7 @@ set -ev
 
 WS=/home/dev/ws
 FSS_DIR=${WS}/src/FastSwarmSim
+export IGN_GAZEBO_RESOURCE_PATH=${IGN_GAZEBO_RESOURCE_PATH}:${WS}/models
 
 if [ ! -d "${FSS_DIR}" ]; then
     echo "[setup] Cloning FastSwarmSim..."
