@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="gillette_stadium">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 1.5708 0 1.5708</pose>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://gillette_stadium/meshes/gillette_stadium.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://gillette_stadium/meshes/gillette_stadium.obj</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>arpo_gz_bridge</name>
+  <version>0.1.0</version>
+  <description>Bridges FastSwarmSim drone poses into Ignition Gazebo for arpo-sim.</description>
+  <maintainer email="vinh.t.tran10@gmail.com">Vinh Tran</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <test_depend>ament_pep8</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
