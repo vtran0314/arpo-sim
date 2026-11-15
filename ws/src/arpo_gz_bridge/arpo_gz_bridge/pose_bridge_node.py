@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Subscribes to FastSwarmSim drone pose and moves the matching model in Ignition Gazebo
-by calling the /world/<world>/set_pose service via the ign CLI.
+Subscribes to FastSwarmSim drone pose and moves the matching model in Gazebo
+by calling the /world/<world>/set_pose service via the gz CLI.
 
 This is intentionally simple: subprocess calls are throttled so the overhead is low.
-Replace with direct ignition-transport Python bindings if sub-10ms latency is needed.
+Replace with direct gz-transport Python bindings if sub-10ms latency is needed.
 """
 import subprocess
 import time
@@ -70,10 +70,10 @@ class PoseBridgeNode(Node):
         )
 
         proc = subprocess.Popen(
-            ['ign', 'service',
+            ['gz', 'service',
              '-s', self._service,
-             '--reqtype', 'ignition.msgs.Pose',
-             '--reptype', 'ignition.msgs.Boolean',
+             '--reqtype', 'gz.msgs.Pose',
+             '--reptype', 'gz.msgs.Boolean',
              '--req', req,
              '--timeout', '500'],
             stdout=subprocess.PIPE,
@@ -86,7 +86,7 @@ class PoseBridgeNode(Node):
                 if rc is not None and rc != 0:
                     err = self._last_proc.stderr.read().decode().strip()
                     if err:
-                        self.get_logger().warn(f'[bridge] ign service rc={rc}: {err}')
+                        self.get_logger().warn(f'[bridge] gz service rc={rc}: {err}')
             except Exception:
                 pass
         self._last_proc = proc

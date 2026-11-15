@@ -3,7 +3,7 @@ set -ev
 
 WS=/home/dev/ws
 FSS_DIR=${WS}/src/FastSwarmSim
-export IGN_GAZEBO_RESOURCE_PATH=${IGN_GAZEBO_RESOURCE_PATH}:${WS}/models
+export GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:${WS}/models
 
 if [ ! -d "${FSS_DIR}" ]; then
     echo "[setup] Cloning FastSwarmSim..."
@@ -11,13 +11,13 @@ if [ ! -d "${FSS_DIR}" ]; then
     git clone https://github.com/shupx/FastSwarmSim.git "${FSS_DIR}"
 
     echo "[setup] Updating rosdep database..."
-    rosdep update --rosdistro humble
+    rosdep update --rosdistro lyrical
 
     echo "[Apt-get update]"
     sudo apt-get update
 
     echo "[setup] Installing ROS dependencies..."
-    source /opt/ros/humble/setup.bash
+    source /opt/ros/lyrical/setup.bash
     cd "${WS}"
     rosdep install --from-paths src --ignore-src -r -y
 

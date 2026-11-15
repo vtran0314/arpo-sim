@@ -1,37 +1,29 @@
 services:
-  ros2:
+  sim:
     build:
       context: .
       args:
-        USERNAME: ${USER:-ros2user}
-        USER_UID: ${UID:-1000}
-        USER_GID: ${GID:-1000}
-    image: ros2-lyrical-dev:latest
-    container_name: ros2-workspace
+        ROS_DISTRO: lyrical
+        # Keep the default 1000 on macOS: the usual macOS GID (20, "staff")
+        # already exists in Ubuntu as "dialout" and would break groupadd.
+        # Docker Desktop maps bind-mount ownership, so the UID need not match.
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+    image: arpo-sim:lyrical
+    container_name: arpo-sim
+    # Host networking needs Docker Desktop 4.34+ with host networking enabled
+    # (Settings > Resources > Network).
     network_mode: host
     stdin_open: true
     tty: true
-    working_dir: /home/ws
-    user: ${USER:-ros2user}
-
     environment:
+      # XQuartz on the Mac host
+      - DISPLAY=host.docker.internal:0
+      - QT_QPA_PLATFORM=xcb
+      - QT_X11_NO_MITSHM=1
+      # No GPU passthrough on macOS: render Gazebo in software
+      - LIBGL_ALWAYS_SOFTWARE=1
       - ROS_DOMAIN_ID=42
       - ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-      - DISPLAY=host.docker.internal:0
-      - QT_X11_NO_MITSHM=1
-      - XAUTHORITY=/home/${USER:-ros2user}/.Xauthority
-
     volumes:
-      # Workspace with persistent build cache
-      - workspace:/home/ws
-
-      # Source code overlays on top
-      - ./src:/home/ws/src
-
-      # X11 socket and authority for GUI applications
-      - ${HOME}/.Xauthority:/home/${USER:-ros2user}/.Xauthority:ro
-
-    command: /bin/bash
-
-volumes:
-  workspace:
+      - ./ws:/home/dev/ws

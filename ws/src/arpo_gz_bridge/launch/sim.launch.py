@@ -1,6 +1,6 @@
 """
 Launches a single FastSwarmSim drone + the Gazebo pose bridge.
-Run ign gazebo separately first, then spawn the models, then run this.
+Run gz sim separately first, then spawn the models, then run this.
 
 Usage:
     ros2 launch arpo_gz_bridge sim.launch.py

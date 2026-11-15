@@ -2,7 +2,7 @@
 <package format="3">
   <name>arpo_gz_bridge</name>
   <version>0.1.0</version>
-  <description>Bridges FastSwarmSim drone poses into Ignition Gazebo for arpo-sim.</description>
+  <description>Bridges FastSwarmSim drone poses into Gazebo for arpo-sim.</description>
   <maintainer email="vinh.t.tran10@gmail.com">Vinh Tran</maintainer>
   <license>MIT</license>
 

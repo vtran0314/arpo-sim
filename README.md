@@ -1,6 +1,14 @@
 # arpo-sim
 
-A Dockerised ROS 2 Humble + Ignition Gazebo environment for swarm simulation using [FastSwarmSim](https://github.com/shupx/FastSwarmSim).
+A Dockerised ROS 2 Lyrical Luth + Gazebo Jetty environment for swarm simulation using [FastSwarmSim](https://github.com/shupx/FastSwarmSim).
+
+| Component | Version |
+|---|---|
+| Base image | `osrf/ros:lyrical-desktop` (Ubuntu 26.04) |
+| ROS 2 | Lyrical Luth |
+| Gazebo | Jetty (installed through `ros-lyrical-ros-gz`) |
+
+The ROS distro is set by the `ROS_DISTRO` build argument in the `Dockerfile` and the compose files.
 
 ---
 
@@ -9,8 +17,8 @@ A Dockerised ROS 2 Humble + Ignition Gazebo environment for swarm simulation usi
 | Requirement | Notes |
 |---|---|
 | Docker + Docker Compose | v2.x recommended |
-| NVIDIA GPU + drivers | Container uses NVIDIA runtime for Gazebo rendering |
-| X11 display server | Linux: native. Windows: WSL2 + WSLg (see `docker-installation-guide-windows.docx`) |
+| NVIDIA GPU + drivers | Linux only: the container uses the NVIDIA runtime for Gazebo rendering |
+| X11 display server | Linux: native. Windows: WSL2 + WSLg (see `docker-installation-guide-windows.docx`). macOS: XQuartz |
 
 ---
 
@@ -96,10 +104,40 @@ Once WSL2 is configured, use the Windows compose file instead:
 
 ```bash
 docker compose -f docker-compose-window.yml up -d
+docker exec -it fusion-sim bash
+```
+
+> **Note:** On Windows the container is named `fusion-sim`, not `arpo-sim`. Use `docker exec -it fusion-sim bash` wherever the Linux steps say `docker exec -it arpo-sim bash`.
+
+Then follow steps 3–6 above inside the container.
+
+To stop it, pass the same compose file:
+
+```bash
+docker compose -f docker-compose-window.yml stop
+```
+
+---
+
+## macOS
+
+1. Install [XQuartz](https://www.xquartz.org/), open its **Settings > Security** and enable **Allow connections from network clients**, then log out and back in.
+2. In Docker Desktop (4.34 or later), enable host networking under **Settings > Resources > Network**.
+3. Allow the container to use the display, then start it with the macOS compose file:
+
+```bash
+xhost + 127.0.0.1
+docker compose -f docker-compose-mac.yml up -d
 docker exec -it arpo-sim bash
 ```
 
-Then follow steps 3–6 above inside the container.
+Then follow steps 3–6 above inside the container. There is no GPU passthrough on macOS, so Gazebo renders in software (`LIBGL_ALWAYS_SOFTWARE=1`) and will be slower than on Linux.
+
+To stop it:
+
+```bash
+docker compose -f docker-compose-mac.yml stop
+```
 
 ---
 
@@ -117,13 +155,14 @@ docker compose stop
 
 ```
 .
-├── Dockerfile                          # ROS 2 Humble + Ignition Gazebo image
+├── Dockerfile                          # ROS 2 Lyrical + Gazebo Jetty image
 ├── docker-compose.yml                  # Linux (NVIDIA GPU)
 ├── docker-compose-window.yml           # Windows WSL2 + WSLg
+├── docker-compose-mac.yml              # macOS (XQuartz, software rendering)
 ├── entrypoint.sh                       # Auto-installs FastSwarmSim on first run
 ├── docker-installation-guide-windows.docx
 └── ws/
-    ├── source-env.sh                   # Sets IGN_GAZEBO_RESOURCE_PATH and sources ROS/FSS setup files
+    ├── source-env.sh                   # Sets GZ_SIM_RESOURCE_PATH and sources ROS + workspace setup files
     ├── start-gazebo.sh                 # Starts Gazebo, waits for readiness, then spawns models
     ├── models/
     │   ├── gillette_stadium/           # Stadium SDF model
