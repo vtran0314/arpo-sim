@@ -9,8 +9,8 @@ echo 'Exporting gazebo resource path'
 export GZ_SIM_RESOURCE_PATH=/home/dev/ws/models
 echo $GZ_SIM_RESOURCE_PATH
 echo 'source ros path'
-source /opt/ros/lyrical/setup.bash
-#echo 'source FSS path'
-#source /home/dev/ws/src/FastSwarmSim/install/setup.bash
+source /opt/ros/${ROS_DISTRO}/setup.bash
+echo 'source FSS path'
+source /home/dev/ws/src/FastSwarmSim/install/setup.bash
 echo 'source model path'
-source /home/dev/ws/install/setup.bash
+source /home/dev/ws/src/arpo_gz_bridge/install/setup.bash
