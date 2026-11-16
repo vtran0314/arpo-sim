@@ -19,14 +19,14 @@ echo "Gazebo ready."
 gz service -s /world/arpo/create \
   --reqtype gz.msgs.EntityFactory \
   --reptype gz.msgs.Boolean \
-  --req 'sdf_filename: "/home/dev/ws/models/gillette_stadium/model.sdf"' \
+  --req 'sdf_filename: "/home/dev/ws/install/share/arpo_description/models/gillette_stadium/model.sdf"' \
   --timeout 5000
 
 # ── Spawn drone ────────────────────────────────────────────────────────────────
 gz service -s /world/arpo/create \
   --reqtype gz.msgs.EntityFactory \
   --reptype gz.msgs.Boolean \
-  --req 'sdf_filename: "/home/dev/ws/models/iris_drone/model.sdf"' \
+  --req 'sdf_filename: "/home/dev/ws/install/share/arpo_description/models/iris_drone/model.sdf"' \
   --timeout 5000
 
 # ── Spawn lidar sensor station ─────────────────────────────────────────────────
@@ -43,5 +43,5 @@ gz service -s /world/arpo/create \
 gz service -s /world/arpo/create \
   --reqtype gz.msgs.EntityFactory \
   --reptype gz.msgs.Boolean \
-  --req 'sdf_filename: "/home/dev/ws/models/lidar/model.sdf", pose: {position: {x: 10, y: 0, z: 0}}' \
+  --req 'sdf_filename: "/home/dev/ws/install/share/arpo_description/models/lidar/model.sdf", pose: {position: {x: 10, y: 0, z: 0}}' \
   --timeout 5000

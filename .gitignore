@@ -4,5 +4,14 @@ ws/build/
 ws/install/
 ws/log/
 
+# Build artifacts inside arpo package directories
+ws/src/arpo/*/build/
+ws/src/arpo/*/install/
+ws/src/arpo/*/log/
+
+# Session context and notes (local only)
+CONTEXT.md
+*-claude-session*.md
+
 # Docker environment variables (may contain secrets)
 .env
