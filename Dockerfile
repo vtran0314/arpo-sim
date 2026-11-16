@@ -1,4 +1,4 @@
-ARG ROS_DISTRO=humble
+ARG ROS_DISTRO=lyrical
 FROM osrf/ros:${ROS_DISTRO}-desktop
 
 ARG ROS_DISTRO

@@ -3,10 +3,12 @@ services:
     build:
       context: .
       args:
-        ROS_DISTRO: humble
+        ROS_DISTRO: ${ROS_DISTRO}
         HOST_UID: ${HOST_UID:-1000}
         HOST_GID: ${HOST_GID:-1000}
-    image: arpo-sim:humble
+    image: arpo-sim:lyrical
+    env_file:
+      - .env
     container_name: arpo-sim
     network_mode: host
     ipc: host
