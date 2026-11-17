@@ -13,9 +13,5 @@ ws/src/arpo/*/log/
 **/__pycache__/
 **/*.pyc
 
-# Session context and notes (local only)
-CONTEXT.md
-*-claude-session*.md
-
 # Docker environment variables (may contain secrets)
 .env
