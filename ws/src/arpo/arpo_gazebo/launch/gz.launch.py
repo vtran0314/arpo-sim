@@ -14,6 +14,7 @@ def generate_launch_description():
 
     gz_sim = ExecuteProcess(
         cmd=['gz', 'sim', world_sdf],
+        additional_env={'GZ_SIM_RESOURCE_PATH': models_dir},
         output='screen',
     )
 
