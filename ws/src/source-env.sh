@@ -6,11 +6,11 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 echo 'Exporting gazebo resource path'
-export GZ_SIM_RESOURCE_PATH=/home/dev/ws/models
+export GZ_SIM_RESOURCE_PATH=/home/dev/ws/install/share/arpo_description/models
 echo $GZ_SIM_RESOURCE_PATH
 echo 'source ros path'
-source /opt/ros/lyrical/setup.bash
-#echo 'source FSS path'
-#source /home/dev/ws/src/FastSwarmSim/install/setup.bash
-echo 'source model path'
+source /opt/ros/${ROS_DISTRO}/setup.bash
+echo 'source FSS path'
+source /home/dev/ws/src/FastSwarmSim/install/setup.bash
+echo 'source arpo packages'
 source /home/dev/ws/install/setup.bash

@@ -3,7 +3,7 @@ set -ev
 
 WS=/home/dev/ws
 FSS_DIR=${WS}/src/FastSwarmSim
-export GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:${WS}/models
+export GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH}:${WS}/install/share/arpo_description/models
 
 if [ ! -d "${FSS_DIR}" ]; then
     echo "[setup] Cloning FastSwarmSim..."
