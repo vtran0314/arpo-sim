@@ -3,7 +3,8 @@
   <name>arpo_gz_bridge</name>
   <version>0.1.0</version>
   <description>Bridges FastSwarmSim drone poses into Gazebo for arpo-sim.</description>
-  <maintainer>Vinh Tran</maintainer>
+  <maintainer email="vtran0314@users.noreply.github.com">Vinh Tran</maintainer>
+  <license>TODO</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>

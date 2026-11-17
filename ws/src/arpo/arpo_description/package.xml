@@ -3,7 +3,8 @@
   <name>arpo_description</name>
   <version>0.1.0</version>
   <description>Gazebo model descriptions for arpo-sim (drone, stadium, lidar).</description>
-  <maintainer>Vinh Tran</maintainer>
+  <maintainer email="vtran0314@users.noreply.github.com">Vinh Tran</maintainer>
+  <license>TODO</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

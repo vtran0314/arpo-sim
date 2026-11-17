@@ -3,7 +3,8 @@
   <name>arpo_gazebo</name>
   <version>0.1.0</version>
   <description>Gazebo world and launch files for arpo-sim.</description>
-  <maintainer>Vinh Tran</maintainer>
+  <maintainer email="vtran0314@users.noreply.github.com">Vinh Tran</maintainer>
+  <license>TODO</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
