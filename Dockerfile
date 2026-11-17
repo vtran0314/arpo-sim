@@ -6,8 +6,12 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
       ros-${ROS_DISTRO}-ros-gz \
+      ros-${ROS_DISTRO}-geographic-msgs \
+      ros-${ROS_DISTRO}-mavros \
+      ros-${ROS_DISTRO}-mavros-msgs \
+      python3-pyqt5 \
       ros-dev-tools \
       python3-colcon-common-extensions \
       mesa-utils \
