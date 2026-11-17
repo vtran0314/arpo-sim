@@ -9,6 +9,10 @@ ws/src/arpo/*/build/
 ws/src/arpo/*/install/
 ws/src/arpo/*/log/
 
+# Python bytecode
+**/__pycache__/
+**/*.pyc
+
 # Session context and notes (local only)
 CONTEXT.md
 *-claude-session*.md
