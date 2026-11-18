@@ -1,8 +1,13 @@
+import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
 
+config = os.path.join(
+    get_package_share_directory('arpo_gz_bridge'), 'config', 'bridge.yml'
+)
 
 def generate_launch_description():
     return LaunchDescription([
@@ -32,8 +37,10 @@ def generate_launch_description():
             executable='parameter_bridge',
             name='lidar_bridge',
             output='screen',
-            arguments=[
-                '/lidar/scan/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked',
-            ],
+            parameters=[{'config_file': config}],
+            #parameters=[{'config_file': '/home/dev/ws/src/arpo/arpo_gz_bridge/config/bridge.yml'}],
+            #arguments=[
+            #    '/lidar/scan/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked',
+            #],
         ),
     ])
