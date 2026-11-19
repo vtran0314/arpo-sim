@@ -1,0 +1,26 @@
+[0.434s] Invoking command in '/home/dev/ws/src/arpo/arpo_mission': PYTHONPATH=/home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/arpo_mission build --build-base /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/build install --record /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/install.log --install-scripts $base/lib/arpo_mission --single-version-externally-managed install_data
+[0.603s] running egg_info
+[0.612s] writing build/arpo_mission/arpo_mission.egg-info/PKG-INFO
+[0.612s] writing dependency_links to build/arpo_mission/arpo_mission.egg-info/dependency_links.txt
+[0.613s] writing entry points to build/arpo_mission/arpo_mission.egg-info/entry_points.txt
+[0.613s] writing requirements to build/arpo_mission/arpo_mission.egg-info/requires.txt
+[0.613s] writing top-level names to build/arpo_mission/arpo_mission.egg-info/top_level.txt
+[0.633s] reading manifest file 'build/arpo_mission/arpo_mission.egg-info/SOURCES.txt'
+[0.633s] writing manifest file 'build/arpo_mission/arpo_mission.egg-info/SOURCES.txt'
+[0.633s] running build
+[0.633s] running build_py
+[0.634s] copying arpo_mission/__init__.py -> /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/build/lib/arpo_mission
+[0.634s] copying arpo_mission/waypoint_node.py -> /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/build/lib/arpo_mission
+[0.634s] running install
+[0.637s] running install_lib
+[0.646s] running install_data
+[0.647s] copying resource/arpo_mission -> /home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/share/ament_index/resource_index/packages
+[0.647s] copying package.xml -> /home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/share/arpo_mission
+[0.647s] copying launch/mission.launch.py -> /home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/share/arpo_mission/launch
+[0.647s] running install_egg_info
+[0.656s] removing '/home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/lib/python3.14/site-packages/arpo_mission-0.1.0-py3.14.egg-info' (and everything under it)
+[0.656s] Copying build/arpo_mission/arpo_mission.egg-info to /home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/lib/python3.14/site-packages/arpo_mission-0.1.0-py3.14.egg-info
+[0.657s] running install_scripts
+[0.707s] Installing waypoint_node script to /home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/lib/arpo_mission
+[0.707s] writing list of installed files to '/home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/install.log'
+[0.727s] Invoked command in '/home/dev/ws/src/arpo/arpo_mission' returned '0': PYTHONPATH=/home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/dev/ws/src/arpo/arpo_mission/install/arpo_mission/lib/python3.14/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/arpo_mission build --build-base /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/build install --record /home/dev/ws/src/arpo/arpo_mission/build/arpo_mission/install.log --install-scripts $base/lib/arpo_mission --single-version-externally-managed install_data
