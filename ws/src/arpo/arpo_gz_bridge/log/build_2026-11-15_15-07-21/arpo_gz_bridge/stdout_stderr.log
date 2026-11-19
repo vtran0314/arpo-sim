@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating arpo_gz_bridge.egg-info
+writing arpo_gz_bridge.egg-info/PKG-INFO
+writing dependency_links to arpo_gz_bridge.egg-info/dependency_links.txt
+writing entry points to arpo_gz_bridge.egg-info/entry_points.txt
+writing requirements to arpo_gz_bridge.egg-info/requires.txt
+writing top-level names to arpo_gz_bridge.egg-info/top_level.txt
+writing manifest file 'arpo_gz_bridge.egg-info/SOURCES.txt'
+reading manifest file 'arpo_gz_bridge.egg-info/SOURCES.txt'
+writing manifest file 'arpo_gz_bridge.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/lib/python3.14/site-packages/arpo-gz-bridge.egg-link (link to .)
+Installing pose_bridge script to /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/lib/arpo_gz_bridge
+
+Installed /home/dev/ws/src/arpo_gz_bridge/build/arpo_gz_bridge
+running symlink_data
+creating /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/share/ament_index/resource_index/packages
+symbolically linking /home/dev/ws/src/arpo_gz_bridge/build/arpo_gz_bridge/resource/arpo_gz_bridge -> /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/share/ament_index/resource_index/packages
+symbolically linking /home/dev/ws/src/arpo_gz_bridge/build/arpo_gz_bridge/package.xml -> /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/share/arpo_gz_bridge
+creating /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/share/arpo_gz_bridge/launch
+symbolically linking /home/dev/ws/src/arpo_gz_bridge/build/arpo_gz_bridge/launch/sim.launch.py -> /home/dev/ws/src/arpo_gz_bridge/install/arpo_gz_bridge/share/arpo_gz_bridge/launch

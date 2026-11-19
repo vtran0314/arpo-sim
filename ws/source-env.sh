@@ -13,4 +13,4 @@ source /opt/ros/lyrical/setup.bash
 #echo 'source FSS path'
 #source /home/dev/ws/src/FastSwarmSim/install/setup.bash
 echo 'source model path'
-source /home/dev/ws/install/setup.bash
+source /home/dev/ws/src/arpo_gz_bridge/install/setup.bash

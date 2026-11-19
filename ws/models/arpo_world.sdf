@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!--
+  arpo_world.sdf — custom simulation world for the ARPO project.
+  System plugins loaded here:
+    Physics          — runs the rigid-body simulation step each tick.
+    Sensors          — drives all sensor updates (lidar, camera, IMU, etc.).
+                       ogre2 is the render backend used for GPU ray casting.
+    SceneBroadcaster — streams the world state to the GUI over gz-transport.
+    UserCommands     — enables runtime model spawning via gz service /world/.../create.
+-->
+<sdf version="1.8">
+  <world name="arpo">
+
+    <!-- ── System plugins ──────────────────────────────────────────────── -->
+
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+
+    <!--Sensors plugin: required for ANY sensor to work-->
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Streams scene graph to Gazebo GUI -->
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+
+    <!-- Allows gz service /world/arpo/create to spawn models at runtime -->
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+
+    <!-- ── Lighting ────────────────────────────────────────────────────── -->
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ── Ground plane ───────────────────────────────────────────────── -->
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <diffuse>0.4 0.4 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
