@@ -7,10 +7,10 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     return LaunchDescription([
+        DeclareLaunchArgument('num_uavs',    default_value='1',
+                              description='Number of drones to bridge.'),
         DeclareLaunchArgument('world_name',  default_value='arpo'),
-        DeclareLaunchArgument('model_name',  default_value='iris_drone'),
         DeclareLaunchArgument('update_rate', default_value='20.0'),
-        DeclareLaunchArgument('namespace',   default_value=''),
         DeclareLaunchArgument('z_offset',    default_value='0.1'),
 
         # Gazebo world + model spawning
@@ -24,10 +24,9 @@ def generate_launch_description():
             PythonLaunchDescriptionSource(PathJoinSubstitution([
                 FindPackageShare('arpo_gz_bridge'), 'launch', 'bridge.launch.py'])),
             launch_arguments={
+                'num_uavs':    LaunchConfiguration('num_uavs'),
                 'world_name':  LaunchConfiguration('world_name'),
-                'model_name':  LaunchConfiguration('model_name'),
                 'update_rate': LaunchConfiguration('update_rate'),
-                'namespace':   LaunchConfiguration('namespace'),
                 'z_offset':    LaunchConfiguration('z_offset'),
             }.items(),
         ),
