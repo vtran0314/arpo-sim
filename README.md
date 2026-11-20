@@ -49,7 +49,7 @@ xhost +local:docker
 
 ```bash
 docker compose up -d
-docker exec -it arpo-sim bash
+docker exec -it fusion-sim bash
 ```
 
 ### 3. Source the environment (inside the container)
