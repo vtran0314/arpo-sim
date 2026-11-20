@@ -11,7 +11,7 @@ ws/src/arpo/*/log/
 
 # Python bytecode
 **/__pycache__/
-**/*.pyc
-
+*.pyc
+*.pyo
 # Docker environment variables (may contain secrets)
 .env
