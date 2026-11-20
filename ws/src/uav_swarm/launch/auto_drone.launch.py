@@ -39,6 +39,11 @@ def generate_launch_description():
                               choices=["true", "false"],
                               description="Open the keyboard interface in its own xterm window."),
 
+        DeclareLaunchArgument('world_name',  default_value='arpo'),
+        DeclareLaunchArgument('update_rate', default_value='20.0'),
+        DeclareLaunchArgument('z_offset',    default_value='0.1',
+                              description="Drone Z offset above ground"),
+
         # Spawn all drones (uav1..uavN) once. The default direct_ros transport runs
         # MAVROS Lite inside PX4, so /uavN/mavros/... exists without extra arguments.
         IncludeLaunchDescription(
@@ -46,6 +51,17 @@ def generate_launch_description():
                 FindPackageShare("fss_px4_sim"), "launch", "px4_rotor_sim_multi.launch.py"])),
             launch_arguments={
                 "num_drones": num_uavs,
+            }.items(),
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(PathJoinSubstitution([
+               FindPackageShare('arpo_bringup'), 'launch', 'sim.launch.py'])),
+            launch_arguments={
+                'num_uavs':    num_uavs,
+                'world_name':  LaunchConfiguration('world_name'),
+                'update_rate': LaunchConfiguration('update_rate'),
+                'z_offset':    LaunchConfiguration('z_offset'),
             }.items(),
         ),
 
