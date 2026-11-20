@@ -17,6 +17,9 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(PathJoinSubstitution([
                 FindPackageShare('arpo_gazebo'), 'launch', 'gz.launch.py'])),
+            launch_arguments={
+                'num_uavs': LaunchConfiguration('num_uavs'),
+            }.items(),
         ),
 
         # Pose bridge (FSS → Gazebo) + lidar bridge (Gazebo → ROS2)
