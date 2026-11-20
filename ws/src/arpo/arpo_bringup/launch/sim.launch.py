@@ -19,17 +19,6 @@ def generate_launch_description():
                 FindPackageShare('arpo_gazebo'), 'launch', 'gz.launch.py'])),
         ),
 
-        # FastSwarmSim single drone
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(PathJoinSubstitution([
-                FindPackageShare('fss_px4_sim'), 'launch', 'px4_rotor_sim_single.launch.py'])),
-            launch_arguments={
-                'namespace':         LaunchConfiguration('namespace'),
-                'enable_rviz':       'false',
-                'enable_visualizer': 'true',
-            }.items(),
-        ),
-
         # Pose bridge (FSS → Gazebo) + lidar bridge (Gazebo → ROS2)
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(PathJoinSubstitution([
