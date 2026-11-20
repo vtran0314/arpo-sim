@@ -1,2 +1,0 @@
-[console_scripts]
-waypoint_node = arpo_mission.waypoint_node:main
