@@ -1,1 +1,0 @@
-/home/dev/ws/src/arpo_gz_bridge/build/arpo_gz_bridge/launch/sim.launch.py

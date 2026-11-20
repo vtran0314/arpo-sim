@@ -1,9 +1,0 @@
-source;share/arpo_gz_bridge/hook/pythonpath.ps1
-source;share/arpo_gz_bridge/hook/pythonpath.dsv
-source;share/arpo_gz_bridge/hook/pythonpath.sh
-source;share/arpo_gz_bridge/hook/ament_prefix_path.ps1
-source;share/arpo_gz_bridge/hook/ament_prefix_path.dsv
-source;share/arpo_gz_bridge/hook/ament_prefix_path.sh
-source;../../build/arpo_gz_bridge/share/arpo_gz_bridge/hook/pythonpath_develop.ps1
-source;../../build/arpo_gz_bridge/share/arpo_gz_bridge/hook/pythonpath_develop.dsv
-source;../../build/arpo_gz_bridge/share/arpo_gz_bridge/hook/pythonpath_develop.sh
