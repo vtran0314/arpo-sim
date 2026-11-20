@@ -1,0 +1,8 @@
+# Switch a UAV between manual (keyboard) and autonomous path following
+uint8 MANUAL=0
+uint8 AUTO=1
+
+uint8 uav_auto
+---
+bool success
+string message

@@ -15,9 +15,12 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
       ros-dev-tools \
       python3-colcon-common-extensions \
       mesa-utils \
-      git vim sudo \
+      git vim sudo xterm \
+      ros-${ROS_DISTRO}-geographic-msgs \
+      ros-${ROS_DISTRO}-mavros \
+      ros-${ROS_DISTRO}-mavros-msgs \
     && rm -rf /var/lib/apt/lists/*
-
+    
 # Ubuntu 24.04 images ship a default "ubuntu" user at UID 1000; remove it
 # so the host UID can be reused.
 RUN userdel -r ubuntu 2>/dev/null || true \
