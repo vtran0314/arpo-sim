@@ -53,11 +53,15 @@
               <max_angle>3.14159265</max_angle>
             </horizontal>
             <vertical>
-              <!-- 16 channels spanning ±15° vertical (VLP-16 style) -->
+              <!-- 16 channels spanning 0° to +30° vertical.
+                   Sensor sits only 0.15 m above ground, so all downward beams
+                   (-15° to 0°) immediately return ground hits, producing dense
+                   concentric rings with no useful data. Shifting the entire FOV
+                   upward dedicates all 16 channels to the airspace where drones fly. -->
               <samples>16</samples>
               <resolution>1</resolution>
-              <min_angle>-0.26180</min_angle>
-              <max_angle>0.26180</max_angle>
+              <min_angle>0.0</min_angle>
+              <max_angle>0.52360</max_angle>
             </vertical>
           </scan>
           <range>
