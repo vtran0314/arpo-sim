@@ -10,6 +10,7 @@
 
   <depend>rclcpp</depend>
   <depend>geometry_msgs</depend>
+  <exec_depend>tf2_ros</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

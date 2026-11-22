@@ -52,4 +52,25 @@ def generate_launch_description():
             output='screen',
             parameters=[{'config_file': config}],
         ),
+
+        # Static TF: world → lidar_3d_v2/link/lidar
+        # The lidar is spawned at (x=10, y=0, z=0) in gz.launch.py; the sensor
+        # sits 0.15 m above the model origin (see lidar/model.sdf sensor pose).
+        # Without this transform RViz cannot locate the point cloud in world space.
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='lidar_tf_publisher',
+            output='screen',
+            arguments=[
+                '--x',          '10.0',
+                '--y',          '0.0',
+                '--z',          '0.15',
+                '--roll',       '0.0',
+                '--pitch',      '0.0',
+                '--yaw',        '0.0',
+                '--frame-id',   'world',
+                '--child-frame-id', 'lidar_3d_v2/link/lidar',
+            ],
+        ),
     ])
