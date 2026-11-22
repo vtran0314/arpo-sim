@@ -63,7 +63,7 @@ def generate_launch_description():
             name='lidar_tf_publisher',
             output='screen',
             arguments=[
-                '--x',          '10.0',
+                '--x',          '1.0',
                 '--y',          '0.0',
                 '--z',          '0.15',
                 '--roll',       '0.0',
@@ -71,6 +71,28 @@ def generate_launch_description():
                 '--yaw',        '0.0',
                 '--frame-id',   'world',
                 '--child-frame-id', 'lidar_3d_v2/link/lidar',
+            ],
+        ),
+
+        # Static TF: world → map (identity)
+        # FastSwarmSim publishes all drone data (path, pose, TF) in the "map"
+        # frame. Without this link, RViz cannot connect the drone TF subtree
+        # (map → uavN/base_link) to the Fixed Frame "world", making drone paths,
+        # robot models, and name markers invisible even though they are published.
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='world_to_map_tf_publisher',
+            output='screen',
+            arguments=[
+                '--x',          '0.0',
+                '--y',          '0.0',
+                '--z',          '0.0',
+                '--roll',       '0.0',
+                '--pitch',      '0.0',
+                '--yaw',        '0.0',
+                '--frame-id',   'world',
+                '--child-frame-id', 'map',
             ],
         ),
     ])
