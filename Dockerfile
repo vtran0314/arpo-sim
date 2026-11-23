@@ -15,6 +15,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
       ros-${ROS_DISTRO}-mavros-msgs \
       python3-pyqt5 \
       ros-dev-tools \
+      libglfw3-dev \
+      libglfw3 \
       python3-colcon-common-extensions \
       mesa-utils \
       git vim sudo xterm \
